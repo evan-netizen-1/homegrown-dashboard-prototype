@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intercom Checklist Update</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { margin: 0.6in; }
+  body { font-family: 'Nunito Sans', sans-serif; color: #1a1a1a; max-width: 700px; margin: 0 auto; padding: 40px 24px; line-height: 1.6; }
+
+  /* Header bar */
+  .header { background: #1B2A1D; color: #fff; padding: 20px 28px; border-radius: 12px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; }
+  .header-left { display: flex; align-items: center; gap: 12px; }
+  .header-logo { font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 800; }
+  .header-title { font-size: 13px; opacity: 0.6; }
+  .header-date { font-size: 12px; opacity: 0.5; }
+
+  h1 { font-family: 'Nunito', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 8px; color: #1B2A1D; }
+  .subtitle { font-size: 15px; color: #666; margin-bottom: 32px; }
+
+  h2 { font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700; color: #1B2A1D; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #F5A623; }
+  h3 { font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 700; margin: 20px 0 8px; }
+
+  p { font-size: 14px; margin-bottom: 12px; }
+
+  /* Task list */
+  .task { background: #fff; border: 1px solid #e8e5df; border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  .task-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .task-num { width: 28px; height: 28px; background: #F5A623; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 14px; flex-shrink: 0; }
+  .task-title { font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 15px; }
+  .task-body { margin-left: 40px; font-size: 13px; color: #555; }
+  .task-body code { background: #f5f3f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: monospace; color: #1B2A1D; }
+
+  /* Remove/add indicators */
+  .remove { background: #fef2f2; border-color: #fecaca; }
+  .remove .task-num { background: #dc2626; }
+  .add { background: #f0fdf4; border-color: #bbf7d0; }
+  .add .task-num { background: #2d6a4f; }
+
+  /* Config block */
+  .config { background: #f5f3f0; border-radius: 10px; padding: 16px 20px; margin: 16px 0; font-size: 13px; }
+  .config-row { display: flex; gap: 8px; margin-bottom: 6px; }
+  .config-label { font-weight: 700; min-width: 140px; color: #1B2A1D; }
+  .config-value { color: #555; }
+
+  /* Step detail cards */
+  .step-card { background: #fff; border: 1px solid #e8e5df; border-left: 4px solid #2d6a4f; border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .step-card h4 { font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .step-card p { font-size: 13px; color: #555; margin-bottom: 4px; }
+  .step-card .field { display: flex; gap: 8px; margin-bottom: 4px; font-size: 12px; }
+  .step-card .field-label { font-weight: 600; min-width: 120px; color: #1B2A1D; }
+  .step-card .field-value { color: #555; }
+  .step-card .field-value code { background: #f5f3f0; padding: 1px 5px; border-radius: 3px; font-family: monospace; font-size: 11px; }
+
+  /* Callout */
+  .callout { background: #FFF8E7; border: 1px solid #F5CF7A; border-radius: 10px; padding: 14px 18px; margin: 20px 0; font-size: 13px; }
+  .callout strong { color: #92400e; }
+
+  .divider { height: 1px; background: #e8e5df; margin: 28px 0; }
+
+  /* Why box */
+  .why { font-size: 12px; color: #888; font-style: italic; margin-top: 6px; }
+
+  ul { margin: 8px 0 12px 20px; font-size: 13px; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo">🌱 homegrown</div>
+    <div class="header-title">Intercom Onboarding Checklist Update</div>
+  </div>
+  <div class="header-date">March 19, 2026</div>
+</div>
+
+<h1>Update the Intercom Onboarding Checklist</h1>
+<p class="subtitle">Replace the current "Business Information" checklist with a 3-step "Get your first order" checklist focused on activation, not profile completion.</p>
+
+<h2>Step 1: Remove These Things</h2>
+
+<div class="task remove">
+  <div class="task-header">
+    <div class="task-num">✕</div>
+    <div class="task-title">Remove the "Take the Vendor Dashboard Tour" modal</div>
+  </div>
+  <div class="task-body">
+    The video/modal that pops up when vendors land on their dashboard. 100% dismissal rate across 42 recorded sessions. Nobody watches it.
+  </div>
+</div>
+
+<div class="task remove">
+  <div class="task-header">
+    <div class="task-num">✕</div>
+    <div class="task-title">Remove or pause the current "Business Information" checklist</div>
+  </div>
+  <div class="task-body">
+    The current Intercom checklist tab at the bottom of the dashboard. It asks for business name, profile details, and social media — things that don't lead to the first sale. We're replacing it with a new checklist below.
+  </div>
+</div>
+
+<h2>Step 2: Create the New Checklist</h2>
+
+<p>In Intercom, go to <strong>Outbound → Checklists → New Checklist</strong> and set it up exactly like this:</p>
+
+<div class="config">
+  <div class="config-row"><span class="config-label">Checklist name:</span><span class="config-value">Get your first order</span></div>
+  <div class="config-row"><span class="config-label">Audience:</span><span class="config-value">All vendors with an active subscription (trial or paid)</span></div>
+  <div class="config-row"><span class="config-label">Notification style:</span><span class="config-value"><strong>Snippet</strong> (the small non-intrusive tab at the bottom — NOT full-screen)</span></div>
+  <div class="config-row"><span class="config-label">Show on pages:</span><span class="config-value">Any page containing <code>/vendor</code></span></div>
+  <div class="config-row"><span class="config-label">Completion celebration:</span><span class="config-value">Enable confetti + button "View Your Store"</span></div>
+</div>
+
+<h3>The 3 Steps (in this exact order)</h3>
+
+<div class="step-card">
+  <h4>Step 1: Add a pickup location</h4>
+  <p>Customers can't order without knowing where to pick up.</p>
+  <div class="field"><span class="field-label">Step copy:</span><span class="field-value">"Tell customers where to pick up. Takes 60 seconds."</span></div>
+  <div class="field"><span class="field-label">Action type:</span><span class="field-value">Go to Page URL</span></div>
+  <div class="field"><span class="field-label">URL:</span><span class="field-value"><code>/vendor/locations/create</code></span></div>
+  <div class="field"><span class="field-label">Auto-resolve:</span><span class="field-value">When event <code>location_added</code> fires (see Step 3 below for dev work)</span></div>
+</div>
+
+<div class="step-card">
+  <h4>Step 2: Add your first product</h4>
+  <p>Just one product to start — they can add more later.</p>
+  <div class="field"><span class="field-label">Step copy:</span><span class="field-value">"Just a name, category, and price. Photos are optional."</span></div>
+  <div class="field"><span class="field-label">Action type:</span><span class="field-value">Go to Page URL</span></div>
+  <div class="field"><span class="field-label">URL:</span><span class="field-value"><code>/vendor/products/create</code></span></div>
+  <div class="field"><span class="field-label">Auto-resolve:</span><span class="field-value">When event <code>product_added</code> fires</span></div>
+</div>
+
+<div class="step-card">
+  <h4>Step 3: Share your store link</h4>
+  <p>This is how they get their first order.</p>
+  <div class="field"><span class="field-label">Step copy:</span><span class="field-value">"Text your link to 5 regulars. Most vendors get their first order within 72 hours."</span></div>
+  <div class="field"><span class="field-label">Action type:</span><span class="field-value">Go to Page URL</span></div>
+  <div class="field"><span class="field-label">URL:</span><span class="field-value"><code>/vendor</code> (dashboard — where the Share button is)</span></div>
+  <div class="field"><span class="field-label">Auto-resolve:</span><span class="field-value">When event <code>store_link_shared</code> fires</span></div>
+</div>
+
+<div class="callout">
+  <strong>Note on auto-resolve:</strong> The auto-resolve events (<code>location_added</code>, <code>product_added</code>, <code>store_link_shared</code>) need to be sent from our app to Intercom. This requires the dev team to add 3 lines of JavaScript — see "Dev Work Required" below. Until those events are wired up, set the steps to <strong>manual completion</strong> (vendor clicks to check off) as a temporary fallback.
+</div>
+
+<h2>Step 3: Dev Work Required (for the dev team, not you)</h2>
+
+<p>Three <code>Intercom('trackEvent')</code> calls need to be added to the app:</p>
+
+<div class="config">
+  <div class="config-row"><span class="config-label">When vendor saves a location:</span><span class="config-value"><code>Intercom('trackEvent', 'location_added');</code></span></div>
+  <div class="config-row"><span class="config-label">When vendor saves a product:</span><span class="config-value"><code>Intercom('trackEvent', 'product_added');</code></span></div>
+  <div class="config-row"><span class="config-label">When vendor clicks Share/Copy Link:</span><span class="config-value"><code>Intercom('trackEvent', 'store_link_shared');</code></span></div>
+</div>
+
+<p>These go in the existing save handlers for locations, products, and the share button click handler. Each is one line of code.</p>
+
+<div class="divider"></div>
+
+<h2>What About the Business Profile Stuff?</h2>
+
+<p>The business name, social media, store description, and other profile steps are <strong>not gone — just moved</strong>. Create a second checklist:</p>
+
+<div class="config">
+  <div class="config-row"><span class="config-label">Checklist name:</span><span class="config-value">Make your store stand out</span></div>
+  <div class="config-row"><span class="config-label">Audience:</span><span class="config-value">Vendors who completed "Get your first order" checklist</span></div>
+  <div class="config-row"><span class="config-label">When to show:</span><span class="config-value">After all 3 steps of the first checklist are done</span></div>
+</div>
+
+<p>Steps for this second checklist (lower priority — build when you have time):</p>
+<ul>
+  <li>Add a store description</li>
+  <li>Upload a profile photo</li>
+  <li>Add your social media links</li>
+  <li>Add more products (vendors with 5+ get 3x more orders)</li>
+</ul>
+
+<div class="divider"></div>
+
+<h2>Why We're Making This Change</h2>
+
+<p>From analyzing 42 Hotjar vendor dashboard recordings:</p>
+
+<ul>
+  <li><strong>90% of vendors abandon product creation</strong> — the current flow is too long</li>
+  <li><strong>0 vendors in any recording received an order</strong> — they set up but never share their link</li>
+  <li><strong>100% dismiss the tour modal</strong> — nobody watches the video</li>
+  <li><strong>The current checklist asks for profile info</strong> — which doesn't lead to sales</li>
+  <li><strong>The #1 thing that produces a first sale is sharing the store link</strong> — which isn't in the current onboarding at all</li>
+</ul>
+
+<p>The new checklist focuses on the 3 things required to receive an order: location + product + sharing. Everything else can come later.</p>
+
+</body>
+</html>
