@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The First 7 Days — Homegrown Vendor Onboarding Master Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: #2D2D2D;
+    background: #F9F9F7;
+    line-height: 1.6;
+    font-size: 14px;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* Header */
+  .header-bar {
+    background: #1B2A1D;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-bar .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-bar .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: #F5A623;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #1B2A1D;
+  }
+  .header-bar .logo-text {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+  .header-bar .header-label {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 13px;
+    color: #F5A623;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* Container */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 32px 60px;
+  }
+
+  /* Title section */
+  .title-section {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .title-section h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1B2A1D;
+    margin-bottom: 6px;
+  }
+  .title-section .subtitle {
+    font-size: 15px;
+    color: #6B6B6B;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .title-section .goal-text {
+    font-size: 13px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 24px;
+  }
+
+  /* Stat callouts */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .stat-box {
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .stat-box.good {
+    background: #E8F5E9;
+    border: 1px solid #A5D6A7;
+  }
+  .stat-box.bad {
+    background: #FFF3E0;
+    border: 1px solid #FFCC80;
+  }
+  .stat-box .stat-value {
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1B2A1D;
+  }
+  .stat-box.bad .stat-value {
+    color: #BF360C;
+  }
+  .stat-box .stat-label {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  /* Section headings */
+  .section {
+    margin-bottom: 40px;
+    page-break-inside: avoid;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1B2A1D;
+    border-bottom: 3px solid #F5A623;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    page-break-after: avoid;
+  }
+
+  /* Status badges */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    color: #fff;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .badge-green { background: #2E7D32; }
+  .badge-orange { background: #E65100; }
+  .badge-red { background: #C62828; }
+  .badge-blue { background: #1565C0; }
+
+  /* Flow diagram */
+  .flow-diagram {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin: 20px 0 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #1B2A1D;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 110px;
+    position: relative;
+  }
+  .flow-step .flow-time {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #F5A623;
+    display: block;
+    margin-top: 2px;
+  }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #F5A623;
+    padding: 0 4px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+  .flow-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .flow-branch .flow-arrow-down {
+    font-size: 18px;
+    color: #F5A623;
+    font-weight: 700;
+  }
+  .flow-step.highlight {
+    background: #F5A623;
+    color: #1B2A1D;
+  }
+  .flow-step.highlight .flow-time {
+    color: #1B2A1D;
+    opacity: 0.7;
+  }
+
+  /* Info callout */
+  .callout {
+    background: #F1F8E9;
+    border-left: 4px solid #558B2F;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .callout.warning {
+    background: #FFF8E1;
+    border-left-color: #F5A623;
+  }
+  .callout.critical {
+    background: #FFEBEE;
+    border-left-color: #C62828;
+  }
+  .callout ul {
+    margin: 6px 0 0 18px;
+  }
+  .callout li {
+    margin-bottom: 4px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 13px;
+  }
+  th {
+    background: #1B2A1D;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #E0E0E0;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td {
+    background: #F5F5F0;
+  }
+  tr:hover td {
+    background: #EDF5E6;
+  }
+
+  /* Timeline */
+  .timeline-entry {
+    border-left: 3px solid #F5A623;
+    padding-left: 24px;
+    margin-left: 12px;
+    margin-bottom: 32px;
+    position: relative;
+    page-break-inside: avoid;
+  }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 4px;
+    width: 13px;
+    height: 13px;
+    background: #F5A623;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #F5A623;
+  }
+  .timeline-heading {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: #1B2A1D;
+    margin-bottom: 4px;
+  }
+  .timeline-subhead {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+  .timeline-entry h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1B2A1D;
+    margin: 14px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Share templates card */
+  .share-card {
+    background: #fff;
+    border: 2px solid #F5A623;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .share-card h4 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: #1B2A1D;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .share-template {
+    background: #F9F9F7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #E8E8E4;
+  }
+  .share-template:last-child {
+    margin-bottom: 0;
+  }
+  .share-template .template-label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #F5A623;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .share-template .template-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .share-template .template-subject {
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 4px;
+  }
+
+  /* Priority categories */
+  .priority-cat {
+    margin-bottom: 24px;
+  }
+  .priority-cat-header {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .priority-cat-header.cat-a { background: #2E7D32; }
+  .priority-cat-header.cat-b { background: #E65100; }
+  .priority-cat-header.cat-c { background: #1565C0; }
+  .priority-cat ol {
+    margin-left: 20px;
+    font-size: 13px;
+  }
+  .priority-cat li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .priority-cat li strong {
+    color: #1B2A1D;
+  }
+
+  /* Metrics table special */
+  .metrics-table td:nth-child(1) {
+    font-weight: 600;
+  }
+
+  /* Gaps list */
+  .gaps-list {
+    list-style: none;
+    padding: 0;
+  }
+  .gaps-list li {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: #FFEBEE;
+    border-left: 4px solid #C62828;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 2px solid #E0E0E0;
+    margin-top: 40px;
+    font-size: 12px;
+    color: #888;
+  }
+  .footer a {
+    color: #F5A623;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .header-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .container { padding: 20px; }
+    .stat-row { grid-template-columns: repeat(4, 1fr); }
+    .section { page-break-inside: avoid; }
+    .section-title { page-break-after: avoid; }
+    .timeline-entry { page-break-inside: avoid; }
+    th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .priority-cat-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .section-2 { page-break-before: always; }
+    .section-3 { page-break-before: always; }
+    .section-4 { page-break-before: always; }
+    .section-5 { page-break-before: always; }
+    .section-6 { page-break-before: always; }
+  }
+
+  @media (max-width: 600px) {
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .flow-diagram { flex-direction: column; align-items: center; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER BAR -->
+<div class="header-bar">
+  <div class="logo-area">
+    <div class="logo-icon">H</div>
+    <span class="logo-text">Homegrown</span>
+  </div>
+  <span class="header-label">Internal Playbook</span>
+</div>
+
+<div class="container">
+
+<!-- TITLE SECTION -->
+<div class="title-section">
+  <h1>The First 7 Days: Getting Vendors to Their First Sale</h1>
+  <div class="subtitle">Master Onboarding Playbook &mdash; March 2026</div>
+  <div class="goal-text">Goal: Maximize trial-to-paid conversion, time to first sale (TTFO), and annual plan adoption</div>
+</div>
+
+<!-- KEY STAT CALLOUT BOXES -->
+<div class="stat-row">
+  <div class="stat-box good">
+    <div class="stat-value">42-50%</div>
+    <div class="stat-label">Trial-to-paid<br>(current)</div>
+  </div>
+  <div class="stat-box good">
+    <div class="stat-value">73%</div>
+    <div class="stat-label">Choose annual plan<br>(current)</div>
+  </div>
+  <div class="stat-box bad">
+    <div class="stat-value">0</div>
+    <div class="stat-label">Confirmed vendor orders<br>(problem)</div>
+  </div>
+  <div class="stat-box bad">
+    <div class="stat-value">90%</div>
+    <div class="stat-label">Product creation abandonment<br>(problem)</div>
+  </div>
+</div>
+
+<!-- SECTION 1: THE CRITICAL PATH -->
+<div class="section">
+  <h2 class="section-title">1. The Critical Path</h2>
+
+  <div class="flow-diagram">
+    <div class="flow-step">SIGNUP<span class="flow-time">0 min</span></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">ADD LOCATION<span class="flow-time">1 min</span></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">ADD PRODUCT<span class="flow-time">5 min</span></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step">SHARE LINK<span class="flow-time">2 min</span></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-branch">
+      <div class="flow-step highlight">FIRST ORDER<span class="flow-time">72h goal</span></div>
+      <div class="flow-arrow-down">&darr;</div>
+      <div class="flow-step highlight">CONVERT TO PAID<span class="flow-time">$10/mo annual</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <ul>
+      <li><strong>To receive orders, vendors need:</strong> (1) at least 1 pickup location, (2) at least 1 product. That's it.</li>
+      <li><strong>The activation moment is NOT setup complete &mdash; it's the FIRST ORDER.</strong> Everything after setup must engineer toward sharing the store link.</li>
+      <li><strong>85% of signups are Social Sellers (ICP1) and Farmstand/Porch sellers (ICP2),</strong> not market vendors. The onboarding must speak to all three.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 2: HOUR-BY-HOUR PLAYBOOK -->
+<div class="section section-2">
+  <h2 class="section-title">2. Hour-by-Hour Playbook</h2>
+  <p style="font-size:13px; color:#666; margin-bottom:24px;">For each touchpoint: what fires, on what channel, its current status, and what's needed to make it live.</p>
+
+  <!-- HOUR 0 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">HOUR 0 &mdash; Signup Complete</div>
+    <div class="timeline-subhead">Vendor just created their account and landed on the dashboard</div>
+
+    <h4>Email Touches</h4>
+    <table>
+      <tr><th>Email</th><th>Subject</th><th>Status</th><th>What Needs to Happen</th></tr>
+      <tr>
+        <td><strong>V1</strong> Welcome</td>
+        <td>"Welcome to Homegrown!"</td>
+        <td><span class="badge badge-green">LIVE</span> <span style="font-size:11px;color:#888;">(needs refresh)</span></td>
+        <td>Refresh: change Step 1 from "Add product" to "Add location". Add trial end date. Add storefront URL.</td>
+      </tr>
+      <tr>
+        <td><strong>V3</strong> Trial Start</td>
+        <td>"Your 7-day free trial just started"</td>
+        <td><span class="badge badge-green">LIVE</span> <span style="font-size:11px;color:#888;">(needs refresh)</span></td>
+        <td>Refresh: lead with trial end date, include 3-step checklist, add dashboard GIF.</td>
+      </tr>
+    </table>
+
+    <h4>Dashboard</h4>
+    <table>
+      <tr><th>Element</th><th>Current State</th><th>Proposed State</th><th>Status</th></tr>
+      <tr>
+        <td>Tour modal</td>
+        <td>"Take the Vendor Dashboard Tour" &mdash; 100% dismissed</td>
+        <td>REMOVE entirely</td>
+        <td><span class="badge badge-orange">NEEDS REMOVAL</span></td>
+      </tr>
+      <tr>
+        <td>Progress checklist</td>
+        <td>Does not exist</td>
+        <td>3-step checklist: Location &rarr; Product &rarr; Share</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+      <tr>
+        <td>Trial countdown</td>
+        <td>Not visible anywhere</td>
+        <td>"Your free trial ends [DATE] &mdash; 7 days left" banner at top</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+      <tr>
+        <td>Sidebar</td>
+        <td>9 items shown to new vendors</td>
+        <td>Simplify to 4 during onboarding (Dashboard, Products, Locations, My Account)</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+    </table>
+
+    <h4>Intercom</h4>
+    <table>
+      <tr><th>Element</th><th>Current State</th><th>Proposed State</th><th>Status</th></tr>
+      <tr>
+        <td>Checklist</td>
+        <td>"Business Information" (profile details)</td>
+        <td>Replace with "Get your first order" &mdash; 3 steps: Location, Product, Share</td>
+        <td><span class="badge badge-orange">SUPPORT TASK</span></td>
+      </tr>
+    </table>
+
+    <h4>Product (Form UX)</h4>
+    <table>
+      <tr><th>Element</th><th>Current State</th><th>Proposed State</th><th>Status</th></tr>
+      <tr>
+        <td>Product form</td>
+        <td>8 fields, images required, SKU prominent</td>
+        <td>3 required fields (Name, Category, Price), everything else collapsed</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+      <tr>
+        <td>Image upload</td>
+        <td>Required to submit &mdash; blocks every mobile vendor</td>
+        <td>Optional on draft, required before publish only</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+      <tr>
+        <td>Validation</td>
+        <td>Premature red errors on untouched fields</td>
+        <td>Validate on blur/submit only</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+      <tr>
+        <td>Location banner</td>
+        <td>Covers submit button on mobile</td>
+        <td>Hide during product creation</td>
+        <td><span class="badge badge-red">NEEDS DEV</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- HOUR 0 +2H -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">HOUR 0 + 2 HOURS &mdash; No Product Yet</div>
+    <div class="timeline-subhead">Vendor signed up but hasn't created a product</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V5</strong></td>
+        <td>
+          <strong>Subject:</strong> "Your store needs one thing to go live"<br>
+          <strong>Trigger:</strong> subscribed +2h, 0 products<br>
+          <strong>CTA:</strong> "Add your first product"
+        </td>
+        <td>
+          <span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span><br>
+          <span style="font-size:11px;color:#666;">Template at V5-vendor-add-product-nudge-1.html. Needs: register in SendGrid + build trigger logic.</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- HOUR 0 +6H -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">HOUR 0 + 6 HOURS &mdash; Still No Product</div>
+    <div class="timeline-subhead">Photo anxiety is the likely blocker</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V6</strong></td>
+        <td>
+          <strong>Subject:</strong> "Your phone camera is all you need"<br>
+          <strong>Trigger:</strong> +6h, 0 products (suppress if V5 converted)<br>
+          <strong>Angle:</strong> Photo anxiety &mdash; reassure that phone photos are fine
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- HOUR 0 +12H -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">HOUR 0 + 12 HOURS &mdash; Still No Product</div>
+    <div class="timeline-subhead">Form complexity is the likely blocker</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V7</strong></td>
+        <td>
+          <strong>Subject:</strong> "Just 4 fields. Everything else is optional."<br>
+          <strong>Trigger:</strong> +12h, 0 products<br>
+          <strong>Angle:</strong> Form complexity &mdash; emphasize minimal requirements
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 1 &mdash; Has Product, No Location</div>
+    <div class="timeline-subhead">Product created but no pickup location set</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V8</strong></td>
+        <td>
+          <strong>Subject:</strong> "Your store has products but no pickup &mdash; let's fix that"<br>
+          <strong>Trigger:</strong> 1+ products, 0 locations, +24h<br>
+          <strong>CTA:</strong> "Add a pickup location"
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 2 &mdash; Has Product + Location, No Description</div>
+    <div class="timeline-subhead">Core setup done but profile incomplete</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V9</strong></td>
+        <td>
+          <strong>Subject:</strong> "Tell customers who you are &mdash; it takes 3 minutes"<br>
+          <strong>Trigger:</strong> has product + location, no description, +48h
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DAY 2-3 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 2-3 &mdash; Setup Complete, 0 Orders</div>
+    <div class="timeline-subhead">The critical activation gap &mdash; vendor needs to SHARE their link</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V10</strong></td>
+        <td>
+          <strong>Subject:</strong> "Your store is ready. Here's how to get your first order."<br>
+          <strong>Trigger:</strong> full setup, 0 orders, +72h<br>
+          <strong>CTA:</strong> "Copy your store link"
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+      <tr>
+        <td><strong>Email V11</strong><br><span style="font-size:11px;color:#F5A623;font-weight:700;">THE ACTIVATION EMAIL</span></td>
+        <td>
+          <strong>Subject:</strong> "Your store is live &mdash; here's exactly how to share it"<br>
+          <strong>Must include:</strong> 4 copy-paste templates (Text, Instagram, Facebook, Email)<br>
+          <strong>Trigger:</strong> has product AND location
+        </td>
+        <td>
+          <span class="badge badge-green">EXISTS</span> <span style="font-size:11px;color:#C62828;font-weight:700;">HIGH PRIORITY REFRESH</span><br>
+          <span style="font-size:11px;color:#666;">Current version is generic. Must add copy-paste share templates.</span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- SHARE TEMPLATES CARD -->
+    <div class="share-card">
+      <h4>Copy-Paste Share Templates for V11</h4>
+
+      <div class="share-template">
+        <div class="template-label">Text to Regulars</div>
+        <div class="template-text">"Hey! I just set up an online store so you can order from me anytime &mdash; not just at the market. Check it out: [YOUR LINK]. Order by [DAY] for pickup on [DAY]."</div>
+      </div>
+
+      <div class="share-template">
+        <div class="template-label">Instagram Post</div>
+        <div class="template-text">"Big news! You can now order my [PRODUCT] online anytime. No more 'save me one!' DMs &#x1F60A; Link in bio: [YOUR LINK] #shoplocal #homegrown"</div>
+      </div>
+
+      <div class="share-template">
+        <div class="template-label">Facebook Post</div>
+        <div class="template-text">"I just launched my online store! If you've ever wanted to order between markets, now you can. [YOUR LINK] &mdash; orders open now."</div>
+      </div>
+
+      <div class="share-template">
+        <div class="template-label">Email to Customers</div>
+        <div class="template-subject">Subject: "You can now order from me online"</div>
+        <div class="template-text">"Hi! I wanted to let you know I set up an online ordering page. You can browse my products, place an order, and pick up at [LOCATION]. Here's the link: [YOUR LINK]"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3-4 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 3-4 &mdash; 0 Orders Still</div>
+    <div class="timeline-subhead">Vendor has setup complete but no traction</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V14-NEW</strong></td>
+        <td>
+          <strong>Subject:</strong> "5 ways to get your first order this week"<br>
+          <strong>5 tactics:</strong> text 5 regulars, post on Instagram, add to bio, print on card, tell people at market
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 5 &mdash; Trial Day 5</div>
+    <div class="timeline-subhead">Urgency begins</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V17a</strong></td>
+        <td>
+          <strong>Subject:</strong> "2 days left to get your first order"<br>
+          If orders &gt; 0: celebrate. If 0: urgency nudge with share CTA.
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 6 &mdash; Trial Day 6</div>
+    <div class="timeline-subhead">THE conversion email &mdash; highest-impact touchpoint for trial-to-paid</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V17b</strong><br><span style="font-size:11px;color:#C62828;font-weight:700;">THE CONVERSION EMAIL</span></td>
+        <td>
+          <strong>Subject:</strong> "Your store goes offline tomorrow"<br>
+          <strong>Frame:</strong> LOSS &mdash; "Your store at [URL] with [X] products goes offline tomorrow. Your [X] profile views disappear."<br>
+          <strong>Primary CTA:</strong> "Keep My Store &mdash; $10/mo annual"<br>
+          <strong>Secondary:</strong> "$12.50/mo monthly"
+        </td>
+        <td>
+          <span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span><br>
+          <span style="font-size:11px;color:#C62828;font-weight:700;">Highest-impact missing email for trial conversion.</span>
+        </td>
+      </tr>
+    </table>
+
+    <div class="callout warning">
+      <strong>Loss aversion is 2x more motivating than gain.</strong> "Your store goes offline" &gt; "Your trial is ending." Always lead with the annual plan ($10/mo) as the primary CTA.
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 7 &mdash; Trial End</div>
+    <div class="timeline-subhead">Final conversion window</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V17c</strong></td>
+        <td>
+          <strong>Subject:</strong> "Your free trial ends today"<br>
+          Simple, direct. Two CTAs: Annual $10/mo (primary) and Monthly $12.50/mo (secondary).
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+      <tr>
+        <td><strong>System</strong></td>
+        <td>If payment method present: auto-converts to paid. If not: V18 fires (exists).</td>
+        <td><span class="badge badge-green">LIVE</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DAY 14 -->
+  <div class="timeline-entry">
+    <div class="timeline-heading">DAY 14 &mdash; Founder Check-in</div>
+    <div class="timeline-subhead">Personal touch from Evan</div>
+
+    <table>
+      <tr><th>Touch</th><th>Details</th><th>Status</th></tr>
+      <tr>
+        <td><strong>Email V21</strong></td>
+        <td>
+          <strong>Subject:</strong> "Quick check-in from Evan"<br>
+          Plain text, personal, from evan@findhomegrown.com.<br>
+          "Have you gotten any orders? Reply and I'll personally help."
+        </td>
+        <td><span class="badge badge-orange">HTML EXISTS &mdash; NOT WIRED</span></td>
+      </tr>
+    </table>
+  </div>
+
+</div><!-- end section 2 -->
+
+<!-- SECTION 3: ANNUAL CONVERSION STRATEGY -->
+<div class="section section-3">
+  <h2 class="section-title">3. Annual Conversion Strategy</h2>
+
+  <p style="font-size:13px; margin-bottom:16px;">73% of vendors already choose the annual plan without any active promotion. Here's how to push that higher:</p>
+
+  <table>
+    <tr><th style="width:30%;">Touchpoint</th><th>Strategy</th></tr>
+    <tr>
+      <td><strong>Day 6 email (V17b)</strong></td>
+      <td>Lead with annual: "Keep your store &mdash; $10/mo" as primary CTA. Monthly ($12.50) as secondary, smaller text.</td>
+    </tr>
+    <tr>
+      <td><strong>Day 7 email (V17c)</strong></td>
+      <td>Same dual-CTA structure. Annual primary, monthly secondary.</td>
+    </tr>
+    <tr>
+      <td><strong>Post-first-order celebration</strong></td>
+      <td>Include annual nudge: "Lock in $10/mo for a year." Ride the dopamine of the first sale.</td>
+    </tr>
+    <tr>
+      <td><strong>Day 30 &mdash; Monthly vendors (V46)</strong></td>
+      <td>Annual Upgrade Nudge: "You've paid $12.50 this month. Switch to annual and save $30/year."</td>
+    </tr>
+    <tr>
+      <td><strong>Pricing discipline</strong></td>
+      <td><strong>Never discount.</strong> $10/mo is already the lowest in market. 90% of subscriptions sell at full price (Adapty data).</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 4: WHAT NEEDS TO HAPPEN -->
+<div class="section section-4">
+  <h2 class="section-title">4. What Needs to Happen (Build List)</h2>
+  <p style="font-size:13px; color:#666; margin-bottom:20px;">Three categories ranked by who can execute and priority level.</p>
+
+  <div class="priority-cat">
+    <div class="priority-cat-header cat-a">Category A: Support Person Can Do Now (Intercom)</div>
+    <ol>
+      <li><strong>Remove the tour modal video</strong> &mdash; 100% of vendors dismiss it immediately</li>
+      <li><strong>Replace "Business Information" checklist</strong> with "Get your first order" (3 steps: Location, Product, Share)</li>
+      <li><strong>Set checklist notification style to Snippet</strong> &mdash; less intrusive, higher engagement</li>
+    </ol>
+  </div>
+
+  <div class="priority-cat">
+    <div class="priority-cat-header cat-b">Category B: Email Team Can Do Now (SendGrid + Triggers)</div>
+    <ol>
+      <li><strong>Refresh V11 (Share Your Profile) with copy-paste templates</strong> &mdash; <span class="badge badge-red" style="font-size:9px;">HIGHEST PRIORITY</span></li>
+      <li><strong>Register V5, V17b, V17c templates</strong> in SendGrid</li>
+      <li><strong>Work with dev team to build trigger logic</strong> for time-delay + completion-state checks</li>
+      <li><strong>Refresh V1</strong> to change step order (location first, not product first)</li>
+    </ol>
+  </div>
+
+  <div class="priority-cat">
+    <div class="priority-cat-header cat-c">Category C: Dev Team (Product Changes)</div>
+    <ol>
+      <li>Make <strong>images optional on product draft</strong> (required before publish only)</li>
+      <li>Reduce <strong>product form to 3 visible fields</strong> (Name, Category, Price)</li>
+      <li>Add <strong>trial countdown</strong> to dashboard</li>
+      <li>Fix <strong>premature validation</strong> on product form</li>
+      <li>Hide <strong>"Add Location" banner</strong> during product creation</li>
+      <li>Add <strong>3 Intercom trackEvent calls</strong> (location_added, product_added, store_link_shared)</li>
+      <li>Replace <strong>tour modal with progress checklist</strong> in dashboard</li>
+      <li>Add <strong>first-product celebration moment</strong></li>
+    </ol>
+  </div>
+</div>
+
+<!-- SECTION 5: SUCCESS METRICS -->
+<div class="section section-5">
+  <h2 class="section-title">5. Success Metrics</h2>
+
+  <table class="metrics-table">
+    <tr><th>Metric</th><th>Current</th><th>30-Day Target</th><th>90-Day Target</th></tr>
+    <tr>
+      <td>Time to first product</td>
+      <td>20-45 min</td>
+      <td>&lt; 10 min</td>
+      <td>&lt; 5 min</td>
+    </tr>
+    <tr>
+      <td>Product creation completion</td>
+      <td>~10%</td>
+      <td>50%</td>
+      <td>80%</td>
+    </tr>
+    <tr>
+      <td>% vendors who share link</td>
+      <td>Unknown (0% tracked)</td>
+      <td>40%</td>
+      <td>60%</td>
+    </tr>
+    <tr>
+      <td>Time to first sale (TTFO)</td>
+      <td>Never (0 orders)</td>
+      <td>72 hours</td>
+      <td>48 hours</td>
+    </tr>
+    <tr>
+      <td>Trial-to-paid</td>
+      <td>42-50%</td>
+      <td>55%</td>
+      <td>65%</td>
+    </tr>
+    <tr>
+      <td>Annual plan adoption</td>
+      <td>73%</td>
+      <td>80%</td>
+      <td>85%</td>
+    </tr>
+    <tr>
+      <td>30-day retention</td>
+      <td>87%</td>
+      <td>90%</td>
+      <td>93%</td>
+    </tr>
+    <tr>
+      <td>MRR</td>
+      <td>~$150</td>
+      <td>$350</td>
+      <td>$700</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 6: KEY GAPS FLAGGED -->
+<div class="section section-6">
+  <h2 class="section-title">6. Key Gaps Flagged</h2>
+
+  <ul class="gaps-list">
+    <li><strong>14 of 16 planned emails exist as HTML but are NOT registered or triggered</strong> &mdash; no backend automation is in place for the nudge sequence.</li>
+    <li><strong>"72 hours to first order" claim in V1 welcome email is unverified</strong> &mdash; 0 orders confirmed in session recordings.</li>
+    <li><strong>Email template file numbering doesn't match strategy doc numbering</strong> &mdash; causes confusion when cross-referencing templates and plans.</li>
+    <li><strong>Share rate is entirely untracked</strong> &mdash; the most critical activation action (sharing the store link) has no measurement whatsoever.</li>
+    <li><strong>ICP segmentation has not been applied to any live onboarding touchpoint</strong> &mdash; all vendors get the same generic flow.</li>
+    <li><strong>No backend trigger logic exists for the nudge email sequence</strong> &mdash; even if templates are registered in SendGrid, they can't fire without dev work on time-delay + completion-state checks.</li>
+  </ul>
+</div>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Homegrown</strong> &mdash; First 7 Days Master Playbook &mdash; March 2026 &mdash; Confidential</p>
+  <p style="margin-top:6px;">Interactive dashboard prototype: <a href="https://evan-netizen-1.github.io/homegrown-dashboard-prototype/" target="_blank">https://evan-netizen-1.github.io/homegrown-dashboard-prototype/</a></p>
+</div>
+
+</body>
+</html>
