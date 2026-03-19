@@ -600,7 +600,7 @@
       <tr>
         <td>Image upload</td>
         <td>Required to submit &mdash; blocks every mobile vendor</td>
-        <td>Optional on draft, required before publish only</td>
+        <td>Auto-placeholder: when vendor selects a category, product gets a category-matched placeholder image automatically (e.g. Bakery &rarr; bread icon on warm background). Product is publishable immediately. Microcopy: "Don't worry, you can add a photo or edit this later." Real photo replaces placeholder when uploaded.</td>
         <td><span class="badge badge-red">NEEDS DEV</span></td>
       </tr>
       <tr>
@@ -937,7 +937,7 @@
   <div class="priority-cat">
     <div class="priority-cat-header cat-c">Category C: Dev Team (Product Changes)</div>
     <ol>
-      <li>Make <strong>images optional on product draft</strong> (required before publish only)</li>
+      <li><strong>Auto-placeholder images by category</strong> &mdash; when vendor selects a category (Bakery, Produce, Honey, etc.), product automatically gets a category-matched placeholder image. Product is publishable immediately. Real photo replaces placeholder when uploaded. Microcopy under image area: "Don't worry, you can add a photo or edit this later." Dev effort: one conditional &mdash; <code>onCategorySelect &rarr; set product.image = categoryPlaceholders[category]</code></li>
       <li>Reduce <strong>product form to 3 visible fields</strong> (Name, Category, Price)</li>
       <li>Add <strong>trial countdown</strong> to dashboard</li>
       <li>Fix <strong>premature validation</strong> on product form</li>
